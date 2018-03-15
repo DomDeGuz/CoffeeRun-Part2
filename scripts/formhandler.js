@@ -24,12 +24,6 @@
       });
       console.log(data);
       fn(data);
-      var customer;
-      customer = 'Thank you for your payment, ' + data['title'] + ' ' + data['username'];
-      $('#validation').text(customer);
-      $('#validation').modal();
-      this.reset();
-      this.elements[0].focus();
     });
   };
 
