@@ -12,9 +12,9 @@
   var RemoteDataStore = App.RemoteDataStore;
   var remoteDS = new RemoteDataStore(SERVER_URL);
 
-  var Validation = App.Validation;
-  var FormHandler = App.FormHandler;
   var CheckList = App.CheckList;
+  var FormHandler = App.FormHandler;
+  var Validation = App.Validation;
 
   var myTruck = new Truck('ncc-1701', remoteDS);
   window.myTruck = myTruck;
@@ -28,13 +28,12 @@
     checkList.addRow.call(checkList, data);
   });
 
-  formHandler.addInputHandler(Validation.isCompanyEmail);
-
   remoteDS.getAll(function(serverResponse) {
     serverResponse.forEach(function(order) {
       checkList.addRow.call(checkList, order);
     });
   });
+  formHandler.addInputHandler(Validation.isCompanyEmail);
 
   console.log(formHandler);
 })(window);
